@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { GoogleApiWrapper } from 'google-maps-react';
+import MapContainer from './MapContainer';
 import './App.css';
 
 class App extends Component {
@@ -7,15 +8,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React Neighborghood-map app</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <MapContainer google={this.props.google}/>
       </div>
     );
   }
 }
 
-export default App;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyCSXDAwIgD_Hc4vXEHKsdOdKymZ99BHw0k'
+})(App)
