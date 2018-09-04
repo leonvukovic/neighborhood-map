@@ -2,12 +2,12 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  z-index: 2;
   background-color: #222;
   padding: 20px;
   color: white;
@@ -19,4 +19,23 @@
 
 .App-intro {
   font-size: large;
+}
+
+.App-menu {
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  background: #efefef;
+  top: 100px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.App-map {
+  width: 80% !important;
+  height: calc(100% - 100px) !important;
+  position: fixed !important;
+  right: 0;
+  top: 100px;
 }

@@ -10,6 +10,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React Neighborghood-map app</h1>
         </header>
+        <nav className="App-menu">
+        test          
+        </nav>
         <MapContainer google={this.props.google}/>
       </div>
     );

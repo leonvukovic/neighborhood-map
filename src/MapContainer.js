@@ -4,8 +4,9 @@ import {Map } from 'google-maps-react';
 export class MapContainer extends Component {
   render() {
     return (
-      <Map google={this.props.google}>
-
+      <Map className="App-map"
+        google={this.props.google}
+      >
       </Map>
     )
   }
