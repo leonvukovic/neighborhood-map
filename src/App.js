@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { GoogleApiWrapper } from 'google-maps-react';
-import MapContainer from './MapContainer';
+import Map from './components/Map';
 import axios from 'axios';
 import './App.css';
 
@@ -26,7 +25,6 @@ class App extends Component {
 
     axios.get(endPoint + new URLSearchParams(parameters))
       .then(response => {
-        //console.log(response.data.response.groups[0].items);
         this.setState({
           venues: response.data.response.groups[0].items
         })
@@ -43,14 +41,12 @@ class App extends Component {
           <h1 className="App-title">Welcome to React Neighborghood-map app</h1>
         </header>
         <nav className="App-menu">
-        test
+        menu
         </nav>
-        <MapContainer google={this.props.google}/>
+        <Map />
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCSXDAwIgD_Hc4vXEHKsdOdKymZ99BHw0k'
-})(App)
+export default App

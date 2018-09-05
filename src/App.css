@@ -31,11 +31,3 @@
   padding: 40px 20px;
   box-sizing: border-box;
 }
-
-.App-map {
-  width: 80% !important;
-  height: calc(100% - 100px) !important;
-  position: fixed !important;
-  right: 0;
-  top: 100px;
-}
