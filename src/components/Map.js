@@ -10,8 +10,17 @@ class Map extends Component {
         defaultCenter = { this.props.center }
         defaultZoom = { 13 }
       >
+      { this.props.venues.map(venue => {
+
+        <Marker
+        position={{ lat: 46.305746, lng: 16.336607 }}
+        />
+        
+      }) }
       </GoogleMap>
     ));
+
+    console.log(this.props.venues)
 
     return (
       <div>

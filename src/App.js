@@ -50,7 +50,7 @@ class App extends Component {
         </nav>
 
         <div className="App-map">
-          <Map center={mapCenter}/>
+          <Map center={mapCenter} venues={this.state.venues}/>
         </div>
       </div>
     );
