@@ -3,7 +3,7 @@ import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
 class Map extends Component {
   render() {
-    const mapContainer = <div style={{ height: '600px', width: '500px' }} />
+    const mapContainer = <div style={{ height: '100%', width: '100%', position: 'absolute' }} />
 
     const GoogleMapLoader = withGoogleMap(props => (
       <GoogleMap
