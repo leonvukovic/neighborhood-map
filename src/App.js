@@ -35,6 +35,11 @@ class App extends Component {
   }
 
   render() {
+    const mapCenter = {
+      lat: 46.305746,
+      lng: 16.336607
+    }
+
     return (
       <div className="App">
         <header className="App-header">
@@ -43,7 +48,10 @@ class App extends Component {
         <nav className="App-menu">
         menu
         </nav>
-        <Map />
+
+        <div className="App-map">
+          <Map center={mapCenter}/>
+        </div>
       </div>
     );
   }
