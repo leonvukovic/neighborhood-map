@@ -7,7 +7,15 @@ import './App.css';
 class App extends Component {
 
   state = {
-    venues: []
+    venues: [],
+    show: false
+  }
+
+  showModal = () => {
+    this.setState({
+      ...this.state,
+      show: !this.state.show
+    });
   }
 
   componentDidMount() {
@@ -27,7 +35,7 @@ class App extends Component {
 
     axios.get(endPoint + new URLSearchParams(parameters))
       .then(response => {
-        console.log(response.data.response.groups[0].items);
+        // console.log(response.data.response.groups[0].items);
         this.setState({
           // Data in state
           venues: response.data.response.groups[0].items
@@ -51,12 +59,13 @@ class App extends Component {
           <h1 className="App-title">Welcome to React Neighborghood-map app</h1>
         </header>
         <nav className="App-menu">
-        menu
-        <Modal/>
+          <Modal onClose={this.showModal} show={this.state.show}>
+                This message is from Modal!
+          </Modal>
         </nav>
 
         <div className="App-map">
-          <Map center={mapCenter} markers={this.state.venues}/>
+          <Map mapMarker={this.showModal} center={mapCenter} markers={this.state.venues}/>
         </div>
       </div>
     );

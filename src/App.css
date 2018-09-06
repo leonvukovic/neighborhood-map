@@ -39,3 +39,29 @@
   right: 0;
   top: 100px;
 }
+
+.App-modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+.App-modal {
+  background-color: #fff;
+  border-radius: 5px;
+  max-width: 500px;
+  min-height: 300px;
+  margin: 0 auto;
+  padding: 50px;
+  position: relative;
+  top: 50%;
+  margin-top: -150px;
+}
+
+.App-modal-button {
+  position: absolute;
+  bottom: 20px;
+}
