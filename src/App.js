@@ -25,6 +25,7 @@ class App extends Component {
 
     axios.get(endPoint + new URLSearchParams(parameters))
       .then(response => {
+        console.log(response.data.response.groups[0].items)
         this.setState({
           venues: response.data.response.groups[0].items
         })
@@ -50,7 +51,7 @@ class App extends Component {
         </nav>
 
         <div className="App-map">
-          <Map center={mapCenter} venues={this.state.venues}/>
+          <Map center={mapCenter} markers={this.state.venues}/>
         </div>
       </div>
     );
