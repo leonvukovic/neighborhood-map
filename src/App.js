@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
+import Modal from './components/Modal';
 import axios from 'axios';
 import './App.css';
 
@@ -13,6 +14,7 @@ class App extends Component {
     this.getVenues()
   }
 
+  // Get Forsquare data
   getVenues = () => {
     const endPoint = "https://api.foursquare.com/v2/venues/explore?"
     const parameters = {
@@ -25,7 +27,9 @@ class App extends Component {
 
     axios.get(endPoint + new URLSearchParams(parameters))
       .then(response => {
+        console.log(response.data.response.groups[0].items);
         this.setState({
+          // Data in state
           venues: response.data.response.groups[0].items
         })
       })
@@ -35,6 +39,7 @@ class App extends Component {
   }
 
   render() {
+    // Map center
     const mapCenter = {
       lat: 46.305746,
       lng: 16.336607
@@ -47,6 +52,7 @@ class App extends Component {
         </header>
         <nav className="App-menu">
         menu
+        <Modal/>
         </nav>
 
         <div className="App-map">
