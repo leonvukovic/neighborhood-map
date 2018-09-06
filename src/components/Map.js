@@ -6,7 +6,12 @@ class Map extends Component {
     // Google map container position and size
     const mapContainer = <div style={{ height: '100%', width: '100%', position: 'absolute' }} />
 
-    // Map over data in state and make markers
+    // Clicked marker data
+    const mapMarker = (clickedMarker) => {
+      console.log(clickedMarker.title, clickedMarker.position.lat, clickedMarker.position.lng, clickedMarker.address);
+    }
+
+    // Map over data from state and make markers
     const markers = this.props.markers.map((venues, i) => {
       // Individual marker
       const marker = {
@@ -19,12 +24,13 @@ class Map extends Component {
       }
 
       // Marker on click
-      const onMarkerClick = (clickedMarker) => {
-        console.log(marker.title, marker.position.lat, marker.position.lng, marker.address);
+      const showModal = (clickedMarker) => {
+        const markerData = marker;
+        mapMarker(markerData);
       };
 
       // Render map component
-      return <Marker key={i} {...marker} onClick={onMarkerClick}>
+      return <Marker key={i} {...marker} onClick={showModal}>
       </Marker>
     });
 
