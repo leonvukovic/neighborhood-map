@@ -59,13 +59,16 @@ class App extends Component {
           <h1 className="App-title">Welcome to React Neighborghood-map app</h1>
         </header>
         <nav className="App-menu">
-          <Modal onClose={this.showModal} show={this.state.show}>
-                This message is from Modal!
-          </Modal>
         </nav>
 
         <div className="App-map">
           <Map mapMarker={this.showModal} center={mapCenter} markers={this.state.venues}/>
+        </div>
+
+        <div>
+          <Modal onClose={this.showModal} show={this.state.show}>
+          This message is from Modal!
+          </Modal>
         </div>
       </div>
     );
