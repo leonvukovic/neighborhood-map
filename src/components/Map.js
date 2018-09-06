@@ -1,19 +1,26 @@
 import React, { Component } from 'react'
-import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
+import { withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
 
 class Map extends Component {
   render() {
     const mapContainer = <div style={{ height: '100%', width: '100%', position: 'absolute' }} />
 
-    const markers = this.props.markers.map((myVenue, i) => {
+    const markers = this.props.markers.map((venues, i) => {
       const marker = {
         position: {
-          lat: myVenue.venue.location.lat,
-          lng: myVenue.venue.location.lng
-        }
+          lat: venues.venue.location.lat,
+          lng: venues.venue.location.lng
+        },
+        title: venues.venue.name
       }
-      return <Marker key={i} {...marker} />
-    })
+
+      const onMarkerClick = (clickedMarker) => {
+        console.log(marker.title);
+      };
+
+      return <Marker key={i} {...marker} onClick={onMarkerClick}>
+      </Marker>
+    });
 
     const GoogleMapLoader = withGoogleMap(props => (
       <GoogleMap
