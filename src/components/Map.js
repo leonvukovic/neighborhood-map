@@ -7,8 +7,8 @@ class Map extends Component {
     const mapContainer = <div style={{ height: '100%', width: '100%', position: 'absolute' }} />
 
     // Clicked marker data
-    const mapMarker = (clickedMarker) => {
-      console.log(clickedMarker.title, clickedMarker.position.lat, clickedMarker.position.lng, clickedMarker.address);
+    const mapMarker = (marker) => {
+      console.log(marker.title, marker.position.lat, marker.position.lng, marker.address);
     }
 
     // Map over data from state and make markers
