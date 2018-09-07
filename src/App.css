@@ -30,6 +30,7 @@
   top: 100px;
   padding: 40px 20px;
   box-sizing: border-box;
+  text-align: left;
 }
 
 .App-map {

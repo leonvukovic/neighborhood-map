@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
 import Modal from './components/Modal';
+import Places from './components/Places';
 import axios from 'axios';
 import './App.css';
 
@@ -61,6 +62,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React Neighborghood-map app</h1>
         </header>
         <nav className="App-menu">
+          <Places markers={this.state.venues}/>
         </nav>
 
         <div className="App-map">
