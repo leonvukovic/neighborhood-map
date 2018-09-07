@@ -62,7 +62,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React Neighborghood-map app</h1>
         </header>
         <nav className="App-menu">
-          <Places markers={this.state.venues}/>
+          <Places openModal={this.showModal} markers={this.state.venues}/>
         </nav>
 
         <div className="App-map">
