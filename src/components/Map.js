@@ -9,8 +9,10 @@ class Map extends Component {
   }
 
   render() {
+    // Variable that holds filtered markers
     let showingMarkers
 
+    // Filter the markers based on the query
     if (this.props.query) {
       const match = new RegExp(escapeRegExp(this.props.query), 'i')
       showingMarkers = this.props.markers.filter((venues) => match.test(venues.venue.name))

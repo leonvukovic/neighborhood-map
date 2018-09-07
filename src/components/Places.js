@@ -8,8 +8,10 @@ class Places extends Component {
   }
 
   render() {
+    // Variable that holds filtered places
     let showingPlaces
 
+    // Filter the places based on the query
     if (this.props.query) {
       const match = new RegExp(escapeRegExp(this.props.query), 'i')
       showingPlaces = this.props.places.filter((venues) => match.test(venues.venue.name))
