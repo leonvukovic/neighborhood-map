@@ -9,11 +9,20 @@ class Map extends Component {
   }
 
   render() {
+    let showingMarkers
+
+    if (this.props.query) {
+      const match = new RegExp(escapeRegExp(this.props.query), 'i')
+      showingMarkers = this.props.markers.filter((venues) => match.test(venues.venue.name))
+    } else {
+      showingMarkers = this.props.markers
+    }
+
     // Google map container position and size
     const mapContainer = <div style={{ height: '100%', width: '100%', position: 'absolute' }} />
 
     // Map over data from state and make markers
-    const markers = this.props.markers.map((venues, i) => {
+    const markers = showingMarkers.map((venues, i) => {
       // Individual marker
       const marker = {
         position: {

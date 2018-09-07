@@ -66,7 +66,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React Neighborghood-map app</h1>
         </header>
-        <nav className="App-menu">          
+        <nav className="App-menu">
           <div className="App-search">
             <input
               className="App-search-places"
@@ -80,7 +80,7 @@ class App extends Component {
         </nav>
 
         <div className="App-map">
-          <Map openModal={this.showModal} center={mapCenter} markers={this.state.venues}/>
+          <Map openModal={this.showModal} center={mapCenter} markers={this.state.venues} query={this.state.query}/>
         </div>
 
         <div>
