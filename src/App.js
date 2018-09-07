@@ -10,7 +10,12 @@ class App extends Component {
   state = {
     venues: [],
     show: false,
-    openMarker: []
+    openMarker: [],
+    query: ''
+  }
+
+  updateQuery = (query) => {
+    this.setState({ query: query.trim() })
   }
 
   showModal = (marker) => {
@@ -62,6 +67,16 @@ class App extends Component {
           <h1 className="App-title">Welcome to React Neighborghood-map app</h1>
         </header>
         <nav className="App-menu">
+          {JSON.stringify(this.state.query)}
+          <div className="App-search">
+            <input
+              className="App-search-places"
+              type="text"
+              placeholder="Search places"
+              value={this.state.query}
+              onChange={(event) => this.updateQuery(event.target.value)}
+            />
+          </div>
           <Places openModal={this.showModal} markers={this.state.venues}/>
         </nav>
 
