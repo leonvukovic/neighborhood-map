@@ -11,7 +11,14 @@ class App extends Component {
     venues: [],
     show: false,
     openMarker: [],
+    activeMarker: false,
     query: ''
+  }
+
+  updateMarker = (marker) => {
+    this.setState({
+      activeMarker: true
+    })
   }
 
   updateQuery = (query) => {
@@ -80,7 +87,7 @@ class App extends Component {
         </nav>
 
         <div className="App-map">
-          <Map openModal={this.showModal} center={mapCenter} markers={this.state.venues} query={this.state.query}/>
+          <Map openModal={this.showModal} center={mapCenter} markers={this.state.venues} query={this.state.query} modal={this.state.show} icon={this.state.activeMarker} changeIcon={this.updateMarker}/>
         </div>
 
         <div>
