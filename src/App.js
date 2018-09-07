@@ -66,8 +66,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React Neighborghood-map app</h1>
         </header>
-        <nav className="App-menu">
-          {JSON.stringify(this.state.query)}
+        <nav className="App-menu">          
           <div className="App-search">
             <input
               className="App-search-places"
@@ -77,7 +76,7 @@ class App extends Component {
               onChange={(event) => this.updateQuery(event.target.value)}
             />
           </div>
-          <Places openModal={this.showModal} markers={this.state.venues}/>
+          <Places openModal={this.showModal} places={this.state.venues} query={this.state.query}/>
         </nav>
 
         <div className="App-map">

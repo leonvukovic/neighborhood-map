@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import escapeRegExp from 'escape-string-regexp';
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
 class Map extends Component {
