@@ -8,13 +8,15 @@ class App extends Component {
 
   state = {
     venues: [],
-    show: false
+    show: false,
+    openMarker: []
   }
 
-  showModal = () => {
+  showModal = (marker) => {
     this.setState({
       ...this.state,
-      show: !this.state.show
+      show: !this.state.show,
+      openMarker: marker
     });
   }
 
@@ -62,12 +64,11 @@ class App extends Component {
         </nav>
 
         <div className="App-map">
-          <Map mapMarker={this.showModal} center={mapCenter} markers={this.state.venues}/>
+          <Map openModal={this.showModal} center={mapCenter} markers={this.state.venues}/>
         </div>
 
         <div>
-          <Modal onClose={this.showModal} show={this.state.show}>
-          This message is from Modal!
+          <Modal onClose={this.showModal} show={this.state.show} markerData={this.state.openMarker}>
           </Modal>
         </div>
       </div>

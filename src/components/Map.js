@@ -3,9 +3,8 @@ import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
 class Map extends Component {
   // Clicked marker data
-  mapMarker = (marker) => {
-    this.props.mapMarker && this.props.mapMarker(marker);
-    console.log(marker.title, marker.position.lat, marker.position.lng, marker.address);
+  openModal = (marker) => {
+    this.props.openModal && this.props.openModal(marker);
   }
 
   render() {
@@ -25,13 +24,13 @@ class Map extends Component {
       }
 
       // Marker on click
-      const showModal = (clickedMarker) => {
+      const cashData = (clickedMarker) => {
         const markerData = marker;
-        this.mapMarker(markerData);
+        this.openModal(markerData);
       };
 
       // Render map component
-      return <Marker key={i} {...marker} onClick={showModal}/>
+      return <Marker key={i} {...marker} onClick={cashData}/>
     });
 
     const GoogleMapLoader = withGoogleMap(props => (
