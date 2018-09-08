@@ -3,8 +3,8 @@ import escapeRegExp from 'escape-string-regexp';
 
 class Places extends Component {
   // Clicked places list item
-  openModal = (venues) => {
-    console.log(venues.venue.name);
+  openModal = (marker) => {
+    this.props.openModal && this.props.openModal(marker);
   }
 
   render() {

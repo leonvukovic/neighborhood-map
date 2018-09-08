@@ -13,10 +13,10 @@ class Modal extends Component {
     return (
       <div className='App-modal-background'>
         <div className='App-modal'>
-          <p><strong>title:</strong> {this.props.markerData.title}</p>
-          <p><strong>lat:</strong> {this.props.markerData.position.lat}</p>
-          <p><strong>lng:</strong> {this.props.markerData.position.lng}</p>
-          <p><strong>address:</strong> {this.props.markerData.address}</p>
+          <p><strong>title:</strong> {this.props.markerData.venue.name}</p>
+          <p><strong>lat:</strong> {this.props.markerData.venue.location.lat}</p>
+          <p><strong>lng:</strong> {this.props.markerData.venue.location.lng}</p>
+          <p><strong>address:</strong> {this.props.markerData.venue.location.address}</p>
           <div className='App-modal-button'>
             <button onClick={(e) => { this.onClose(e) }}>
               Close

@@ -7,7 +7,7 @@ class Map extends Component {
   // Clicked marker data
   openModal = (marker) => {
     this.props.openModal && this.props.openModal(marker);
-    this.props.changeIcon && this.props.changeIcon(marker);
+    //this.props.changeIcon && this.props.changeIcon(marker);
   }
 
   render() {
@@ -42,12 +42,13 @@ class Map extends Component {
           lng: venues.venue.location.lng
         },
         title: venues.venue.name,
-        address: venues.venue.location.address
+        address: venues.venue.location.address,
+        venues: venues
       }
 
       // Marker on click
       const cashData = (clickedMarker) => {
-        const markerData = marker;
+        const markerData = marker.venues;
         this.openModal(markerData);
       };
 
