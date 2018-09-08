@@ -1,6 +1,6 @@
 # Neigborhood map react application
 
-blabla
+When you run this project, you can find pizza places in Varaždin. Places should be listed on the left sidebar, and also marked with markers on the map. You also can search for places based on current list of places and find place by entering specific caracter.  
 
 ## Table of Contents
 
