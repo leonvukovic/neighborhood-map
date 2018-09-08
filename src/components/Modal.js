@@ -5,7 +5,6 @@ class Modal extends Component {
     this.props.onClose && this.props.onClose(e);
   }
 
-
   render() {
     if(!this.props.show) {
       return null;

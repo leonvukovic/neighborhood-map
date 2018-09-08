@@ -23,10 +23,7 @@ class Map extends Component {
     }
 
     const markerIcon = {
-       url: 'http://maps.gstatic.com/mapfiles/markers2/boost-marker-mapview.png'
-    }
-    const clickedIcon = {
-       url: 'https://cdn4.iconfinder.com/data/icons/colicon/24/pin_location-512.png'
+       url: 'http://mt.google.com/vt/icon?psize=25&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=44&ay=50&text=%E2%80%A2'
     }
 
     // Google map container position and size
@@ -36,7 +33,7 @@ class Map extends Component {
     const markers = showingMarkers.map((venues, i) => {
       // Individual marker
       const marker = {
-        icon: this.props.icon === false ? markerIcon : clickedIcon,
+        defaultIcon: markerIcon,
         position: {
           lat: venues.venue.location.lat,
           lng: venues.venue.location.lng

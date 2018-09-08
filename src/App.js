@@ -11,14 +11,7 @@ class App extends Component {
     venues: [],
     show: false,
     openMarker: [],
-    activeMarker: false,
     query: ''
-  }
-
-  updateMarker = (marker) => {
-    this.setState({
-      activeMarker: true
-    })
   }
 
   updateQuery = (query) => {
@@ -50,14 +43,13 @@ class App extends Component {
 
     axios.get(endPoint + new URLSearchParams(parameters))
       .then(response => {
-        // console.log(response.data.response.groups[0].items);
         this.setState({
           // Data in state
           venues: response.data.response.groups[0].items
         })
       })
       .catch(error => {
-        console.log("ERROR!! " + error)
+        alert("ERROR!! " + error)
       })
   }
 
@@ -87,7 +79,7 @@ class App extends Component {
         </nav>
 
         <div className="App-map">
-          <Map openModal={this.showModal} center={mapCenter} markers={this.state.venues} query={this.state.query} modal={this.state.show} icon={this.state.activeMarker} changeIcon={this.updateMarker}/>
+          <Map openModal={this.showModal} center={mapCenter} markers={this.state.venues} query={this.state.query} modal={this.state.show}/>
         </div>
 
         <div>
