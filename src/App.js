@@ -68,6 +68,7 @@ class App extends Component {
         <nav className="App-menu">
           <div className="App-search">
             <input
+              aria-label="Search places"
               className="App-search-places"
               type="text"
               placeholder="Search places"

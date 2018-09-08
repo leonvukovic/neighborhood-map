@@ -22,7 +22,7 @@
 }
 
 .App-menu {
-  width: 20%;
+  width: 25%;
   height: 100%;
   position: fixed;
   z-index: 1;
@@ -34,7 +34,7 @@
 }
 
 .App-map {
-  width: 80%;
+  width: 75%;
   height: calc(100% - 100px);
   position: fixed;
   right: 0;
@@ -48,21 +48,123 @@
   left: 0;
   right: 0;
   background: rgba(0,0,0,0.4);
+  z-index: 2;
 }
 
 .App-modal {
   background-color: #fff;
   border-radius: 5px;
-  max-width: 500px;
-  min-height: 300px;
+  max-width: 300px;
+  min-height: 250px;
   margin: 0 auto;
-  padding: 50px;
   position: relative;
   top: 50%;
   margin-top: -150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App-modal p {
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.App-modal p:last-child {
+  margin-bottom: 0px;
 }
 
 .App-modal-button {
   position: absolute;
   bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid #02b3e4;
+  color: #02b3e4;
+  box-shadow: 0 0 8px 0 rgba(17,22,26,.16), 0 4px 8px 0 rgba(17,22,26,.08), 0 8px 16px 0 rgba(17,22,26,.08);
+  font-size: 14px;
+  text-transform: uppercase;
+  height: 30px;
+  border-radius: 5px;
+}
+.App-modal-button button {
+  padding: 0 !important;
+  width: 50px;
+  background: transparent;
+  border: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.App-search-places {
+  height: 44px;
+  width: 100%;
+  border: 1px solid #dbe2e8;
+  border-radius: 5px;
+  font-size: 14px;
+  box-shadow: 0 2px 2px 0 rgba(46,60,73,.05);
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.App-places {
+  list-style: none;
+  padding: 0;
+}
+
+.App-place {
+  background-color: #fff;
+  height: 44px;
+  width: 100%;
+  border: 1px solid #dbe2e8;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #2f4859;
+  box-shadow: 0 2px 2px 0 rgba(46,60,73,.05);
+}
+
+.App-place:hover {
+  border: 2px solid #06addb;
+  color: #06addb;
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .App-menu {
+    width: 30%;
+  }
+  .App-map {
+    width: 70%;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .App-menu {
+    width: 40%;
+  }
+  .App-map {
+    width: 60%;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .App-header {
+    padding: 0;
+  }
+  .App-menu {
+    width: 45%;
+    padding: 20px 10px;
+  }
+  .App-map {
+    width: 55%;
+  }
 }
