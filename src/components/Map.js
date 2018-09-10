@@ -8,6 +8,7 @@ class Map extends Component {
   openModal = (marker) => {
     this.props.openModal && this.props.openModal(marker);
     //this.props.changeIcon && this.props.changeIcon(marker);
+    console.log(marker.venue.id);
   }
 
   render() {

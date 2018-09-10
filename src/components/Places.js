@@ -5,6 +5,7 @@ class Places extends Component {
   // Clicked places list item
   openModal = (marker) => {
     this.props.openModal && this.props.openModal(marker);
+    console.log(marker.venue.id);
   }
 
   render() {
