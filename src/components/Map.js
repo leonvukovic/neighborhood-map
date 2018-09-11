@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import escapeRegExp from 'escape-string-regexp';
-import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 
 class Map extends Component {
   state = {
@@ -68,18 +68,20 @@ class Map extends Component {
       return <Marker key={i} {...marker} onClick={toggleBounce,cashData}/>
     });
 
-    const GoogleMapLoader = withGoogleMap(props => (
+    const GoogleMapLoader = withScriptjs(withGoogleMap(props => (
       // Google map
       <GoogleMap
         defaultCenter = { this.props.center }
         defaultZoom = { 13 }
       >{ markers }</GoogleMap>
-    ));
+    )));
 
     return (
       // Google map renderd wrapper
       <div>
         <GoogleMapLoader
+          googleMapURL= "https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyBX_gcT9_iiz8kp_BuYe0vxLw6HNqRbnRY"
+          loadingElement= { <div style={{ height: `100%` }} />}
           containerElement = { mapContainer }
           mapElement = { <div style={{ height: '100%' }} /> }
         />
