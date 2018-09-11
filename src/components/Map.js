@@ -4,13 +4,12 @@ import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
 class Map extends Component {
   state = {
-    markerUrl: 'http://mt.google.com/vt/icon?psize=25&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=44&ay=50&text=%E2%80%A2'
+    markerUrl: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
   }
 
   changeIcon = (markerData) => {
-    console.log(markerData);
     this.setState({
-      markerUrl: 'http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-Free-Download-PNG.png'
+      markerUrl: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
     });
   }
 
@@ -33,10 +32,6 @@ class Map extends Component {
       showingMarkers = this.props.markers
     }
 
-    // const markerIcon = {
-    //    url: 'http://mt.google.com/vt/icon?psize=25&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=44&ay=50&text=%E2%80%A2'
-    // }
-
     // Google map container position and size
     const mapContainer = <div style={{ height: '100%', width: '100%', position: 'absolute' }} />
 
@@ -51,7 +46,16 @@ class Map extends Component {
         },
         title: venues.venue.name,
         address: venues.venue.location.address,
+        //animation: window.google.maps.Animation.DROP,
         venues: venues
+      }
+
+      function toggleBounce() {
+        if (this.getAnimation() !== null) {
+          this.setAnimation(null);
+        } else {
+          this.setAnimation(window.google.maps.Animation.BOUNCE);
+        }
       }
 
       // Marker on click
@@ -61,7 +65,7 @@ class Map extends Component {
       };
 
       // Render map component
-      return <Marker key={i} {...marker} onClick={this.changeIcon}/>
+      return <Marker key={i} {...marker} onClick={toggleBounce,cashData}/>
     });
 
     const GoogleMapLoader = withGoogleMap(props => (
