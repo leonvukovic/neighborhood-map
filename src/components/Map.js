@@ -3,6 +3,16 @@ import escapeRegExp from 'escape-string-regexp';
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
 class Map extends Component {
+  state = {
+    markerUrl: 'http://mt.google.com/vt/icon?psize=25&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=44&ay=50&text=%E2%80%A2'
+  }
+
+  changeIcon = (markerData) => {
+    console.log(markerData);
+    this.setState({
+      markerUrl: 'http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-Free-Download-PNG.png'
+    });
+  }
 
   // Clicked marker data
   openModal = (marker) => {
@@ -23,9 +33,9 @@ class Map extends Component {
       showingMarkers = this.props.markers
     }
 
-    const markerIcon = {
-       url: 'http://mt.google.com/vt/icon?psize=25&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=44&ay=50&text=%E2%80%A2'
-    }
+    // const markerIcon = {
+    //    url: 'http://mt.google.com/vt/icon?psize=25&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=44&ay=50&text=%E2%80%A2'
+    // }
 
     // Google map container position and size
     const mapContainer = <div style={{ height: '100%', width: '100%', position: 'absolute' }} />
@@ -34,7 +44,7 @@ class Map extends Component {
     const markers = showingMarkers.map((venues, i) => {
       // Individual marker
       const marker = {
-        defaultIcon: markerIcon,
+        defaultIcon: this.state.markerUrl,
         position: {
           lat: venues.venue.location.lat,
           lng: venues.venue.location.lng
@@ -51,7 +61,7 @@ class Map extends Component {
       };
 
       // Render map component
-      return <Marker key={i} {...marker} onClick={cashData}/>
+      return <Marker key={i} {...marker} onClick={this.changeIcon}/>
     });
 
     const GoogleMapLoader = withGoogleMap(props => (
