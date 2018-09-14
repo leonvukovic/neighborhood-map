@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Map from './components/Map';
 import Modal from './components/Modal';
 import Places from './components/Places';
+import CustomMarker from './components/Marker';
 import axios from 'axios';
 import './App.css';
 
@@ -80,7 +81,8 @@ class App extends Component {
         </nav>
 
         <div className="App-map">
-          <Map openModal={this.showModal} center={mapCenter} markers={this.state.venues} query={this.state.query} modal={this.state.show}/>
+          <Map openModal={this.showModal} center={mapCenter} markers={this.state.venues} query={this.state.query} modal={this.state.show}>
+          </Map>
         </div>
 
         <div>
